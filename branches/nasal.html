@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>VetForm — 콧물·재채기</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<header class="vf-header"><div><div class="vf-header__logo">🐾 VetForm</div><div class="vf-header__subtitle">증상 상세 문진</div></div></header>
+<div class="vf-progress"><div class="vf-progress__bar" id="progressBar" style="width:0%"></div></div>
+<div class="vf-page">
+  <div class="vf-page-title vf-mt-md">
+    <div class="vf-page-title__label">Branch 16</div>
+    <div class="vf-page-title__h1">🤧 콧물·재채기</div>
+    <div class="vf-page-title__desc">콧물·재채기에 대해 조금 더 알려주세요.</div>
+  </div>
+
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">🕐</span><span class="vf-section__title">발생 양상</span></div>
+    <div class="vf-section__body"><div class="vf-field"><label class="vf-label">언제부터인가요?</label><div class="vf-chips"><button class="vf-chip" data-group="since" data-value="오늘">오늘</button> <button class="vf-chip" data-group="since" data-value="2~3일">2~3일</button> <button class="vf-chip" data-group="since" data-value="1주일">1주일</button> <button class="vf-chip" data-group="since" data-value="1달 이상">1달 이상</button> <button class="vf-chip" data-group="since" data-value="오래됨(수개월)">오래됨(수개월)</button></div></div><div class="vf-field"><label class="vf-label">패턴</label><div class="vf-chips"><button class="vf-chip" data-group="pattern" data-value="계속">계속</button> <button class="vf-chip" data-group="pattern" data-value="간헐적">간헐적</button> <button class="vf-chip" data-group="pattern" data-value="점점 심해짐">점점 심해짐</button> <button class="vf-chip" data-group="pattern" data-value="계절마다 반복">계절마다 반복</button></div></div><div class="vf-field"><label class="vf-label">어느 쪽 콧구멍인가요?</label><div class="vf-chips"><button class="vf-chip" data-group="side" data-value="한쪽만">한쪽만</button> <button class="vf-chip" data-group="side" data-value="양쪽">양쪽</button> <button class="vf-chip" data-group="side" data-value="모름">모름</button></div></div></div>
+  </section>
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">🤧</span><span class="vf-section__title">콧물·재채기 양상 세부</span></div>
+    <div class="vf-section__body"><div class="vf-field"><label class="vf-label">콧물 색깔</label><div class="vf-chips"><button class="vf-chip" data-group="discharge_color" data-value="없음">없음</button> <button class="vf-chip" data-group="discharge_color" data-value="투명">투명</button> <button class="vf-chip" data-group="discharge_color" data-value="흰색·노란색">흰색·노란색</button> <button class="vf-chip" data-group="discharge_color" data-value="녹색">녹색</button> <button class="vf-chip" data-group="discharge_color" data-value="피 섞임">피 섞임</button></div></div><div class="vf-field"><label class="vf-label">재채기 빈도</label><div class="vf-chips"><button class="vf-chip" data-group="sneeze_frequency" data-value="가끔">가끔</button> <button class="vf-chip" data-group="sneeze_frequency" data-value="자주">자주</button> <button class="vf-chip" data-group="sneeze_frequency" data-value="거의 계속">거의 계속</button></div></div><div class="vf-field"><label class="vf-label">재채기 양상</label><div class="vf-chips"><button class="vf-chip" data-group="sneeze_type" data-value="일반 재채기">일반 재채기</button> <button class="vf-chip" data-group="sneeze_type" data-value="역재채기 (코로 공기를 들이마시는 소리)">역재채기 (코로 공기를 들이마시는 소리)</button> <button class="vf-chip" data-group="sneeze_type" data-value="둘 다">둘 다</button></div></div><div class="vf-field"><label class="vf-label">코피가 나나요?</label><div class="vf-chips"><button class="vf-chip" data-group="epistaxis" data-value="없음">없음</button> <button class="vf-chip" data-group="epistaxis" data-value="가끔">가끔</button> <button class="vf-chip" data-group="epistaxis" data-value="자주">자주</button></div></div></div>
+  </section>
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">🔗</span><span class="vf-section__title">동반 증상</span></div>
+    <div class="vf-section__body"><div class="vf-field"><label class="vf-label">눈 분비물·충혈 동반</label><div class="vf-chips"><button class="vf-chip" data-group="eye_discharge" data-value="없음">없음</button> <button class="vf-chip" data-group="eye_discharge" data-value="있음">있음</button></div></div><div class="vf-field"><label class="vf-label">기침 동반</label><div class="vf-chips"><button class="vf-chip" data-group="cough" data-value="없음">없음</button> <button class="vf-chip" data-group="cough" data-value="있음">있음</button></div></div><div class="vf-field"><label class="vf-label">호흡 이상 동반</label><div class="vf-chips"><button class="vf-chip" data-group="dyspnea" data-value="없음">없음</button> <button class="vf-chip" data-group="dyspnea" data-value="있음">있음</button></div></div><div class="vf-field"><label class="vf-label">식욕 변화</label><div class="vf-chips"><button class="vf-chip" data-group="appetite" data-value="정상">정상</button> <button class="vf-chip" data-group="appetite" data-value="감소">감소</button> <button class="vf-chip" data-group="appetite" data-value="안 먹음">안 먹음</button></div></div><div class="vf-field"><label class="vf-label">기력 변화</label><div class="vf-chips"><button class="vf-chip" data-group="energy" data-value="정상">정상</button> <button class="vf-chip" data-group="energy" data-value="처짐">처짐</button></div></div><div class="vf-field"><label class="vf-label">입을 벌리고 숨쉬나요?</label><div class="vf-hint">비강 완전 폐색 시사 — 고양이 응급 신호</div><div class="vf-chips"><button class="vf-chip" data-group="open_mouth" data-value="없음">없음</button> <button class="vf-chip" data-group="open_mouth" data-value="있음">있음</button></div></div></div>
+  </section>
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">⚠️</span><span class="vf-section__title">위험 신호</span></div>
+    <div class="vf-section__body"><div class="vf-field"><label class="vf-label">한쪽 콧구멍에서만 증상이 있고 점점 심해지나요?</label><div class="vf-chips"><button class="vf-chip" data-group="unilateral_worsening" data-value="아니요">아니요</button> <button class="vf-chip" data-group="unilateral_worsening" data-value="그런 것 같음">그런 것 같음</button></div></div><div class="vf-field"><label class="vf-label">이물 흡입 가능성이 있나요?</label><div class="vf-chips"><button class="vf-chip" data-group="foreign_body" data-value="없음">없음</button> <button class="vf-chip" data-group="foreign_body" data-value="있음">있음</button> <button class="vf-chip" data-group="foreign_body" data-value="모름">모름</button></div></div><div class="vf-field"><label class="vf-label">동거 동물 동일 증상</label><div class="vf-chips"><button class="vf-chip" data-group="housemate_sick" data-value="없음">없음</button> <button class="vf-chip" data-group="housemate_sick" data-value="있음">있음</button> <button class="vf-chip" data-group="housemate_sick" data-value="동거동물 없음">동거동물 없음</button></div></div><div class="vf-field"><label class="vf-label">최근 다른 동물과 접촉했나요?</label><div class="vf-hint">미용실, 호텔, 합사 등</div><div class="vf-chips"><button class="vf-chip" data-group="animal_contact" data-value="없음">없음</button> <button class="vf-chip" data-group="animal_contact" data-value="있음">있음</button></div></div><div class="vf-field"><label class="vf-label">이전에 비강·구강 관련 진단받은 적 있나요?</label><div class="vf-chips"><button class="vf-chip" data-group="nasal_hx" data-value="없음">없음</button> <button class="vf-chip" data-group="nasal_hx" data-value="있음">있음</button> <button class="vf-chip" data-group="nasal_hx" data-value="모름">모름</button></div></div></div>
+  </section>
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">💬</span><span class="vf-section__title">추가 전달 사항</span><span class="vf-section__badge vf-section__badge--optional">선택</span></div>
+    <div class="vf-section__body">
+      <textarea class="vf-textarea" id="f-notes" placeholder="콧물·재채기에 대해 추가로 전달하고 싶은 내용을 적어주세요" rows="3"></textarea>
+    </div>
+  </section>
+</div>
+<div class="vf-bottom-bar">
+  <button class="vf-btn vf-btn--secondary" onclick="history.back()">← 이전</button>
+  <button class="vf-btn vf-btn--primary" onclick="handleNext()">다음 →</button>
+</div>
+<script src="../assets/utils.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const state = {};
+  const multiState = {};
+  const ACCORDION_RULES = {};
+
+  function collectTextFields(data) {}
+  function handleSideEffect(group, value) {
+    if (group === 'eye_discharge' && value === '있음') VF.Router.addBranchIfMissing('eye');
+    if (group === 'cough'         && value === '있음') VF.Router.addBranchIfMissing('cough');
+    if (group === 'dyspnea'       && value === '있음') VF.Router.addBranchIfMissing('dyspnea');
+  }
+
+  document.querySelectorAll('.vf-chip[data-group]').forEach(chip => {
+    chip.addEventListener('click', function() {
+      const group = this.dataset.group;
+      document.querySelectorAll(`.vf-chip[data-group="${group}"]`).forEach(c => c.classList.remove('selected'));
+      this.classList.add('selected');
+      state[group] = this.dataset.value;
+      const rule = ACCORDION_RULES[group];
+      if (rule) VF.toggleAccordion(document.getElementById(rule.acc), this.dataset.value === rule.trigger);
+      handleSideEffect(group, this.dataset.value);
+    });
+  });
+  document.querySelectorAll('.vf-chip[data-multi]').forEach(chip => {
+    chip.addEventListener('click', function() {
+      this.classList.toggle('selected');
+      const key = this.dataset.multi;
+      const val = this.dataset.value;
+      if (!multiState[key]) multiState[key] = [];
+      if (this.classList.contains('selected')) { if (!multiState[key].includes(val)) multiState[key].push(val); }
+      else { multiState[key] = multiState[key].filter(v => v !== val); }
+    });
+  });
+  function handleNext() {
+    const data = Object.assign({}, state);
+    Object.keys(multiState).forEach(k => { data[k] = multiState[k]; });
+    data.notes = document.getElementById('f-notes').value.trim();
+    collectTextFields(data);
+    VF.Storage.set('branch_nasal', data);
+    VF.Router.completeCurrent();
+  }
+  window.handleNext = handleNext;
+  VF.updateProgressBar(Math.round(VF.Router.getProgress() * 100));
+});
+</script>
+</body>
+</html>

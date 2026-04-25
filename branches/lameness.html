@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>VetForm — 파행</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<header class="vf-header"><div><div class="vf-header__logo">🐾 VetForm</div><div class="vf-header__subtitle">증상 상세 문진</div></div></header>
+<div class="vf-progress"><div class="vf-progress__bar" id="progressBar" style="width:0%"></div></div>
+<div class="vf-page">
+  <div class="vf-page-title vf-mt-md">
+    <div class="vf-page-title__label">Branch 8</div>
+    <div class="vf-page-title__h1">🦵 파행</div>
+    <div class="vf-page-title__desc">파행에 대해 조금 더 알려주세요.</div>
+  </div>
+
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">🕐</span><span class="vf-section__title">발생 양상</span></div>
+    <div class="vf-section__body">
+      <div class="vf-field">
+        <label class="vf-label">언제부터인가요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="since" data-value="오늘">오늘</button>
+          <button class="vf-chip" data-group="since" data-value="2~3일">2~3일</button>
+          <button class="vf-chip" data-group="since" data-value="1주일">1주일</button>
+          <button class="vf-chip" data-group="since" data-value="1달 이상">1달 이상</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">발생 계기</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="onset" data-value="갑자기">갑자기</button>
+          <button class="vf-chip" data-group="onset" data-value="서서히">서서히</button>
+          <button class="vf-chip" data-group="onset" data-value="특정 사건 후 (외상, 점프 등)">특정 사건 후 (외상, 점프 등)</button>
+          <button class="vf-chip" data-group="onset" data-value="모름">모름</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">패턴</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="pattern" data-value="계속">계속</button>
+          <button class="vf-chip" data-group="pattern" data-value="쉬면 나아짐">쉬면 나아짐</button>
+          <button class="vf-chip" data-group="pattern" data-value="움직일수록 심해짐">움직일수록 심해짐</button>
+          <button class="vf-chip" data-group="pattern" data-value="아침에 심하고 풀림">아침에 심하고 풀림</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">🦵</span><span class="vf-section__title">파행 양상 세부</span></div>
+    <div class="vf-section__body">
+      <div class="vf-field">
+        <label class="vf-label">어느 다리인가요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="limb" data-value="앞 왼쪽">앞 왼쪽</button>
+          <button class="vf-chip" data-group="limb" data-value="앞 오른쪽">앞 오른쪽</button>
+          <button class="vf-chip" data-group="limb" data-value="뒤 왼쪽">뒤 왼쪽</button>
+          <button class="vf-chip" data-group="limb" data-value="뒤 오른쪽">뒤 오른쪽</button>
+          <button class="vf-chip" data-group="limb" data-value="여러 다리">여러 다리</button>
+          <button class="vf-chip" data-group="limb" data-value="모름">모름</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">다리를 아예 안 짚나요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="weight_bearing" data-value="절뚝이지만 짚음">절뚝이지만 짚음</button>
+          <button class="vf-chip" data-group="weight_bearing" data-value="거의 안 짚음">거의 안 짚음</button>
+          <button class="vf-chip" data-group="weight_bearing" data-value="전혀 안 짚음">전혀 안 짚음</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">부어 있거나 눈에 띄는 상처가 있나요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="swelling" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="swelling" data-value="부어 있음">부어 있음</button>
+          <button class="vf-chip" data-group="swelling" data-value="상처 있음">상처 있음</button>
+          <button class="vf-chip" data-group="swelling" data-value="있는 것 같은데 모름">있는 것 같은데 모름</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">만지면 아파하나요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="pain_touch" data-value="안 만져봤음">안 만져봤음</button>
+          <button class="vf-chip" data-group="pain_touch" data-value="만져도 괜찮음">만져도 괜찮음</button>
+          <button class="vf-chip" data-group="pain_touch" data-value="살짝 싫어함">살짝 싫어함</button>
+          <button class="vf-chip" data-group="pain_touch" data-value="많이 아파함">많이 아파함</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">🔧</span><span class="vf-section__title">만성 관절염(OA) 스크리닝</span></div>
+    <div class="vf-section__body">
+      <div class="vf-field">
+        <label class="vf-label">계단 오르내리기나 점프를 예전보다 꺼리나요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="avoid_stairs" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="avoid_stairs" data-value="있음">있음</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">앉았다 일어날 때 힘들어 보이나요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="sit_to_stand" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="sit_to_stand" data-value="있음">있음</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">증상이 추운 날씨에 더 심한가요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="cold_worse" data-value="모름">모름</button>
+          <button class="vf-chip" data-group="cold_worse" data-value="아니요">아니요</button>
+          <button class="vf-chip" data-group="cold_worse" data-value="그런 것 같음">그런 것 같음</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">🔗</span><span class="vf-section__title">동반 증상</span></div>
+    <div class="vf-section__body">
+      <div class="vf-field">
+        <label class="vf-label">기력 변화</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="energy" data-value="정상">정상</button>
+          <button class="vf-chip" data-group="energy" data-value="처짐">처짐</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">식욕 변화</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="appetite" data-value="정상">정상</button>
+          <button class="vf-chip" data-group="appetite" data-value="감소">감소</button>
+          <button class="vf-chip" data-group="appetite" data-value="안 먹음">안 먹음</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">뒷다리 힘이 없거나 휘청거리나요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="hind_weakness" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="hind_weakness" data-value="있음">있음</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">허리나 목을 아파하는 것 같나요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="spinal_pain" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="spinal_pain" data-value="있는 것 같음">있는 것 같음</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">⚠️</span><span class="vf-section__title">위험 신호</span></div>
+    <div class="vf-section__body">
+      <div class="vf-field">
+        <label class="vf-label">외상 가능성 (낙상, 교통사고, 물림)</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="trauma" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="trauma" data-value="있음">있음</button>
+        </div>
+        <div class="vf-accordion" id="acc-trauma">
+          <div class="vf-accordion__inner"><input class="vf-input" type="text" id="f-trauma-detail" placeholder="어떤 사고였나요?" /></div>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">이전에 슬개골 탈구, 고관절 이상, 인대 파열 등으로 진단받은 적 있나요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="ortho_hx" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="ortho_hx" data-value="있음">있음</button>
+          <button class="vf-chip" data-group="ortho_hx" data-value="모름">모름</button>
+        </div>
+        <div class="vf-accordion" id="acc-ortho">
+          <div class="vf-accordion__inner"><input class="vf-input" type="text" id="f-ortho-detail" placeholder="어떤 진단이었나요?" /></div>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">고양이인데 뒷다리를 갑자기 못 쓰게 됐나요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="cat_hind_paralysis" data-value="해당 없음">해당 없음</button>
+          <button class="vf-chip" data-group="cat_hind_paralysis" data-value="아니요">아니요</button>
+          <button class="vf-chip" data-group="cat_hind_paralysis" data-value="그런 것 같음">그런 것 같음</button>
+        </div>
+        <div class="vf-accordion" id="acc-cat-ate">
+          <div class="vf-accordion__inner"><div id="urgent-cat-ate"></div></div>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">다리가 차갑게 느껴지나요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="cold_limb" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="cold_limb" data-value="한쪽만 차가움">한쪽만 차가움</button>
+          <button class="vf-chip" data-group="cold_limb" data-value="모름">모름</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">💬</span><span class="vf-section__title">추가 전달 사항</span><span class="vf-section__badge vf-section__badge--optional">선택</span></div>
+    <div class="vf-section__body">
+      <textarea class="vf-textarea" id="f-notes" placeholder="파행에 대해 추가로 전달하고 싶은 내용을 적어주세요" rows="3"></textarea>
+    </div>
+  </section>
+</div>
+<div class="vf-bottom-bar">
+  <button class="vf-btn vf-btn--secondary" onclick="history.back()">← 이전</button>
+  <button class="vf-btn vf-btn--primary" onclick="handleNext()">다음 →</button>
+</div>
+<script src="../assets/utils.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const state = {};
+  const multiState = {};
+  const ACCORDION_RULES = {};
+
+  Object.assign(ACCORDION_RULES, {
+    trauma:  { acc: 'acc-trauma', trigger: '있음' },
+    ortho_hx:{ acc: 'acc-ortho',  trigger: '있음' },
+  });
+  function collectTextFields(data) {
+    data.trauma_detail = document.getElementById('f-trauma-detail') ? document.getElementById('f-trauma-detail').value.trim() : '';
+    data.ortho_detail  = document.getElementById('f-ortho-detail')  ? document.getElementById('f-ortho-detail').value.trim()  : '';
+  }
+  function handleSideEffect(group, value) {
+    if (group === 'hind_weakness'      && value === '있음') VF.Router.addBranchIfMissing('seizure');
+    if (group === 'cat_hind_paralysis' && value === '그런 것 같음') {
+      VF.toggleAccordion(document.getElementById('acc-cat-ate'), true);
+      VF.showUrgentAlert(document.getElementById('urgent-cat-ate'), '고양이 뒷다리 갑작스러운 마비는 혈전색전증(ATE) 응급입니다. 즉시 내원해주세요.');
+    }
+  }
+
+  document.querySelectorAll('.vf-chip[data-group]').forEach(chip => {
+    chip.addEventListener('click', function() {
+      const group = this.dataset.group;
+      document.querySelectorAll(`.vf-chip[data-group="${group}"]`).forEach(c => c.classList.remove('selected'));
+      this.classList.add('selected');
+      state[group] = this.dataset.value;
+      const rule = ACCORDION_RULES[group];
+      if (rule) VF.toggleAccordion(document.getElementById(rule.acc), this.dataset.value === rule.trigger);
+      handleSideEffect(group, this.dataset.value);
+    });
+  });
+  document.querySelectorAll('.vf-chip[data-multi]').forEach(chip => {
+    chip.addEventListener('click', function() {
+      this.classList.toggle('selected');
+      const key = this.dataset.multi;
+      const val = this.dataset.value;
+      if (!multiState[key]) multiState[key] = [];
+      if (this.classList.contains('selected')) { if (!multiState[key].includes(val)) multiState[key].push(val); }
+      else { multiState[key] = multiState[key].filter(v => v !== val); }
+    });
+  });
+  function handleNext() {
+    const data = Object.assign({}, state);
+    Object.keys(multiState).forEach(k => { data[k] = multiState[k]; });
+    data.notes = document.getElementById('f-notes').value.trim();
+    collectTextFields(data);
+    VF.Storage.set('branch_lameness', data);
+    VF.Router.completeCurrent();
+  }
+  window.handleNext = handleNext;
+  VF.updateProgressBar(Math.round(VF.Router.getProgress() * 100));
+});
+</script>
+</body>
+</html>

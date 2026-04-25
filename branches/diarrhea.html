@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>VetForm — 설사</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+
+<header class="vf-header">
+  <div>
+    <div class="vf-header__logo">🐾 VetForm</div>
+    <div class="vf-header__subtitle">증상 상세 문진</div>
+  </div>
+</header>
+<div class="vf-progress"><div class="vf-progress__bar" id="progressBar" style="width:0%"></div></div>
+
+<div class="vf-page">
+  <div class="vf-page-title vf-mt-md">
+    <div class="vf-page-title__label">Branch 2</div>
+    <div class="vf-page-title__h1">💩 설사</div>
+    <div class="vf-page-title__desc">설사에 대해 조금 더 알려주시면 수의사 선생님께 도움이 됩니다.</div>
+  </div>
+
+  <!-- 발생 양상 -->
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header">
+      <span class="vf-section__icon">🕐</span>
+      <span class="vf-section__title">발생 양상</span>
+    </div>
+    <div class="vf-section__body">
+
+      <div class="vf-field">
+        <label class="vf-label">언제부터인가요?</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="since" data-value="오늘">오늘</button>
+          <button class="vf-chip" data-group="since" data-value="2~3일">2~3일</button>
+          <button class="vf-chip" data-group="since" data-value="1주일">1주일</button>
+          <button class="vf-chip" data-group="since" data-value="1달 이상">1달 이상</button>
+        </div>
+      </div>
+
+      <div class="vf-field">
+        <label class="vf-label">하루 횟수</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="frequency" data-value="1~2회">1~2회</button>
+          <button class="vf-chip" data-group="frequency" data-value="3~5회">3~5회</button>
+          <button class="vf-chip" data-group="frequency" data-value="6회 이상">6회 이상</button>
+          <button class="vf-chip" data-group="frequency" data-value="모름">모름</button>
+        </div>
+      </div>
+
+      <div class="vf-field">
+        <label class="vf-label">발생 패턴</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="pattern" data-value="매일 지속">매일 지속</button>
+          <button class="vf-chip" data-group="pattern" data-value="간헐적">간헐적</button>
+          <button class="vf-chip" data-group="pattern" data-value="점점 심해짐">점점 심해짐</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 변 성상 -->
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header">
+      <span class="vf-section__icon">💩</span>
+      <span class="vf-section__title">변 성상</span>
+    </div>
+    <div class="vf-section__body">
+
+      <div class="vf-field">
+        <label class="vf-label">굳기</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="consistency" data-value="약간 무름">약간 무름</button>
+          <button class="vf-chip" data-group="consistency" data-value="죽처럼">죽처럼</button>
+          <button class="vf-chip" data-group="consistency" data-value="물처럼">물처럼</button>
+        </div>
+      </div>
+
+      <div class="vf-field">
+        <label class="vf-label">색깔 (여러 개 선택 가능)</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-multi="color" data-value="정상(갈색)">정상 (갈색)</button>
+          <button class="vf-chip" data-multi="color" data-value="노란색">노란색</button>
+          <button class="vf-chip" data-multi="color" data-value="검은색">검은색</button>
+          <button class="vf-chip" data-multi="color" data-value="붉은색(혈변)">붉은색 (혈변)</button>
+          <button class="vf-chip" data-multi="color" data-value="회색·흰색">회색 · 흰색</button>
+        </div>
+      </div>
+
+      <div class="vf-field">
+        <label class="vf-label">혈액 섞임</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="blood" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="blood" data-value="변에 섞임">변에 섞임</button>
+          <button class="vf-chip" data-group="blood" data-value="변 위에 묻어남">변 위에 묻어남</button>
+          <button class="vf-chip" data-group="blood" data-value="모름">모름</button>
+        </div>
+      </div>
+
+      <div class="vf-field">
+        <label class="vf-label">점액 섞임</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="mucus" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="mucus" data-value="있음">있음</button>
+          <button class="vf-chip" data-group="mucus" data-value="모름">모름</button>
+        </div>
+      </div>
+
+      <div class="vf-field">
+        <label class="vf-label">냄새</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="odor" data-value="평소와 비슷">평소와 비슷</button>
+          <button class="vf-chip" data-group="odor" data-value="심하게 남">심하게 남</button>
+          <button class="vf-chip" data-group="odor" data-value="모름">모름</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 동반 증상 -->
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header">
+      <span class="vf-section__icon">🔗</span>
+      <span class="vf-section__title">동반 증상</span>
+    </div>
+    <div class="vf-section__body">
+
+      <div class="vf-field">
+        <label class="vf-label">구토 동반</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="vomiting" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="vomiting" data-value="있음">있음</button>
+        </div>
+        <div class="vf-accordion" id="acc-vomiting-rec">
+          <div class="vf-accordion__inner">
+            <div class="vf-alert-urgent" style="background:#EFF6FF;border-color:#BFDBFE">
+              <span class="vf-alert-urgent__icon">💡</span>
+              <span class="vf-alert-urgent__text" style="color:#1E40AF">구토 상세 문진도 자동으로 추가됩니다.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vf-field">
+        <label class="vf-label">식욕 변화</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="appetite" data-value="정상">정상</button>
+          <button class="vf-chip" data-group="appetite" data-value="감소">감소</button>
+          <button class="vf-chip" data-group="appetite" data-value="안 먹음">안 먹음</button>
+        </div>
+      </div>
+
+      <div class="vf-field">
+        <label class="vf-label">기력 변화</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="energy" data-value="정상">정상</button>
+          <button class="vf-chip" data-group="energy" data-value="약간 처짐">약간 처짐</button>
+          <button class="vf-chip" data-group="energy" data-value="많이 처짐">많이 처짐</button>
+        </div>
+      </div>
+
+      <div class="vf-field">
+        <label class="vf-label">배에 힘을 주는 모습 (이급후증)</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="tenesmus" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="tenesmus" data-value="있음">있음</button>
+        </div>
+      </div>
+
+      <div class="vf-field">
+        <label class="vf-label">배변 자세는 취하나 변이 안 나옴</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="straining" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="straining" data-value="있음">있음</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 위험 신호 -->
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header">
+      <span class="vf-section__icon">⚠️</span>
+      <span class="vf-section__title">위험 신호</span>
+    </div>
+    <div class="vf-section__body">
+
+      <div class="vf-field">
+        <label class="vf-label">이물 섭취 가능성</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="foreign_body" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="foreign_body" data-value="있음">있음</button>
+          <button class="vf-chip" data-group="foreign_body" data-value="모름">모름</button>
+        </div>
+        <div class="vf-accordion" id="acc-foreign">
+          <div class="vf-accordion__inner">
+            <input class="vf-input" type="text" id="f-foreign-detail" placeholder="무엇을 먹었나요?" />
+          </div>
+        </div>
+      </div>
+
+      <div class="vf-field">
+        <label class="vf-label">최근 약물 · 독성물질 노출</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="toxin" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="toxin" data-value="있음">있음</button>
+          <button class="vf-chip" data-group="toxin" data-value="모름">모름</button>
+        </div>
+      </div>
+
+      <div class="vf-field">
+        <label class="vf-label">최근 식이 변경</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="diet_change" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="diet_change" data-value="있음">있음</button>
+        </div>
+        <div class="vf-accordion" id="acc-diet">
+          <div class="vf-accordion__inner">
+            <input class="vf-input" type="text" id="f-diet-detail" placeholder="무엇으로 바꿨나요?" />
+          </div>
+        </div>
+      </div>
+
+      <div class="vf-field">
+        <label class="vf-label">동거 동물에게도 같은 증상이 있나요?</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="housemate_sick" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="housemate_sick" data-value="있음">있음</button>
+          <button class="vf-chip" data-group="housemate_sick" data-value="동거동물 없음">동거동물 없음</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 자유 입력 -->
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header">
+      <span class="vf-section__icon">💬</span>
+      <span class="vf-section__title">추가 전달 사항</span>
+      <span class="vf-section__badge vf-section__badge--optional">선택</span>
+    </div>
+    <div class="vf-section__body">
+      <textarea class="vf-textarea" id="f-notes" placeholder="설사에 대해 추가로 전달하고 싶은 내용을 적어주세요" rows="3"></textarea>
+    </div>
+  </section>
+
+</div>
+
+<div class="vf-bottom-bar">
+  <button class="vf-btn vf-btn--secondary" onclick="history.back()">← 이전</button>
+  <button class="vf-btn vf-btn--primary" onclick="handleNext()">다음 →</button>
+</div>
+
+<script src="../assets/utils.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  const state = {};
+  const multiState = { color: [] };
+
+  const ACCORDION_RULES = {
+    foreign_body: { acc: 'acc-foreign',       trigger: '있음' },
+    diet_change:  { acc: 'acc-diet',          trigger: '있음' },
+    vomiting:     { acc: 'acc-vomiting-rec',  trigger: '있음' },
+  };
+
+  document.querySelectorAll('.vf-chip[data-group]').forEach(chip => {
+    chip.addEventListener('click', function() {
+      const group = this.dataset.group;
+      document.querySelectorAll(`.vf-chip[data-group="${group}"]`)
+        .forEach(c => c.classList.remove('selected'));
+      this.classList.add('selected');
+      state[group] = this.dataset.value;
+
+      const rule = ACCORDION_RULES[group];
+      if (rule) VF.toggleAccordion(document.getElementById(rule.acc), this.dataset.value === rule.trigger);
+
+      if (group === 'vomiting' && this.dataset.value === '있음') {
+        VF.Router.addBranchIfMissing('vomiting');
+      }
+    });
+  });
+
+  document.querySelectorAll('.vf-chip[data-multi]').forEach(chip => {
+    chip.addEventListener('click', function() {
+      this.classList.toggle('selected');
+      const key = this.dataset.multi;
+      const val = this.dataset.value;
+      if (this.classList.contains('selected')) {
+        if (!multiState[key].includes(val)) multiState[key].push(val);
+      } else {
+        multiState[key] = multiState[key].filter(v => v !== val);
+      }
+    });
+  });
+
+  function handleNext() {
+    VF.Storage.set('branch_diarrhea', {
+      since:          state.since,
+      frequency:      state.frequency,
+      pattern:        state.pattern,
+      consistency:    state.consistency,
+      color:          multiState.color,
+      blood:          state.blood,
+      mucus:          state.mucus,
+      odor:           state.odor,
+      vomiting:       state.vomiting,
+      appetite:       state.appetite,
+      energy:         state.energy,
+      tenesmus:       state.tenesmus,
+      straining:      state.straining,
+      foreign_body:   state.foreign_body,
+      foreign_detail: document.getElementById('f-foreign-detail').value.trim(),
+      toxin:          state.toxin,
+      diet_change:    state.diet_change,
+      diet_detail:    document.getElementById('f-diet-detail').value.trim(),
+      housemate_sick: state.housemate_sick,
+      notes:          document.getElementById('f-notes').value.trim(),
+    });
+    VF.Router.completeCurrent();
+  }
+
+  window.handleNext = handleNext;
+  VF.updateProgressBar(Math.round(VF.Router.getProgress() * 100));
+});
+</script>
+</body>
+</html>

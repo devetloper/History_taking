@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>VetForm — 기력저하</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<header class="vf-header">
+  <div><div class="vf-header__logo">🐾 VetForm</div><div class="vf-header__subtitle">증상 상세 문진</div></div>
+</header>
+<div class="vf-progress"><div class="vf-progress__bar" id="progressBar" style="width:0%"></div></div>
+<div class="vf-page">
+  <div class="vf-page-title vf-mt-md">
+    <div class="vf-page-title__label">Branch 4</div>
+    <div class="vf-page-title__h1">😴 기력저하</div>
+    <div class="vf-page-title__desc">기력 저하에 대해 조금 더 알려주세요.</div>
+  </div>
+
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">🕐</span><span class="vf-section__title">발생 양상</span></div>
+    <div class="vf-section__body">
+      <div class="vf-field">
+        <label class="vf-label">언제부터인가요?</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="since" data-value="오늘">오늘</button>
+          <button class="vf-chip" data-group="since" data-value="2~3일">2~3일</button>
+          <button class="vf-chip" data-group="since" data-value="1주일">1주일</button>
+          <button class="vf-chip" data-group="since" data-value="1달 이상">1달 이상</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">어느 정도인가요?</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="degree" data-value="약간 처짐">약간 처짐</button>
+          <button class="vf-chip" data-group="degree" data-value="많이 처짐">많이 처짐</button>
+          <button class="vf-chip" data-group="degree" data-value="거의 움직이지 않음">거의 움직이지 않음</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">패턴</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="pattern" data-value="계속 처져있음">계속 처져있음</button>
+          <button class="vf-chip" data-group="pattern" data-value="시간대에 따라 다름">시간대에 따라 다름</button>
+          <button class="vf-chip" data-group="pattern" data-value="점점 심해짐">점점 심해짐</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">🛋️</span><span class="vf-section__title">행동 변화 세부</span></div>
+    <div class="vf-section__body">
+      <div class="vf-field">
+        <label class="vf-label">산책 / 놀이 반응</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="activity" data-value="평소와 비슷">평소와 비슷</button>
+          <button class="vf-chip" data-group="activity" data-value="예전보다 줄었음">예전보다 줄었음</button>
+          <button class="vf-chip" data-group="activity" data-value="거의 안 하려 함">거의 안 하려 함</button>
+          <button class="vf-chip" data-group="activity" data-value="완전히 거부">완전히 거부</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">자는 시간</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="sleep" data-value="평소와 비슷">평소와 비슷</button>
+          <button class="vf-chip" data-group="sleep" data-value="늘었음">늘었음</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">숨으려는 행동</label>
+        <div class="vf-hint">고양이에서 특히 중요 — 통증·중증 시사</div>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="hiding" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="hiding" data-value="있음">있음</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">불렀을 때 반응</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="response" data-value="정상">정상</button>
+          <button class="vf-chip" data-group="response" data-value="느림">느림</button>
+          <button class="vf-chip" data-group="response" data-value="거의 반응 없음">거의 반응 없음</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">🏃</span><span class="vf-section__title">운동 불내성</span></div>
+    <div class="vf-section__body">
+      <div class="vf-field">
+        <label class="vf-label">조금만 움직여도 숨이 차 보이거나 힘들어 보이나요?</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="exercise_dyspnea" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="exercise_dyspnea" data-value="있음">있음</button>
+          <button class="vf-chip" data-group="exercise_dyspnea" data-value="모름">모름</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">산책 중 갑자기 주저앉거나 못 걷겠다고 하나요?</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="walk_collapse" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="walk_collapse" data-value="있음">있음</button>
+          <button class="vf-chip" data-group="walk_collapse" data-value="산책 안 함">산책 안 함</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">놀다가 금방 지쳐서 눕나요?</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="quick_fatigue" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="quick_fatigue" data-value="있음">있음</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">🔗</span><span class="vf-section__title">동반 증상</span></div>
+    <div class="vf-section__body">
+      <div class="vf-field">
+        <label class="vf-label">식욕 변화</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="appetite" data-value="정상">정상</button>
+          <button class="vf-chip" data-group="appetite" data-value="감소">감소</button>
+          <button class="vf-chip" data-group="appetite" data-value="안 먹음">안 먹음</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">구토 동반</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="vomiting" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="vomiting" data-value="있음">있음</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">설사 동반</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="diarrhea" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="diarrhea" data-value="있음">있음</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">호흡 변화</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="breathing" data-value="정상">정상</button>
+          <button class="vf-chip" data-group="breathing" data-value="빨라 보임">빨라 보임</button>
+          <button class="vf-chip" data-group="breathing" data-value="힘겨워 보임">힘겨워 보임</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">통증 징후 (만지면 피함, 움츠림, 신음)</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="pain" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="pain" data-value="있는 것 같음">있는 것 같음</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">체온 이상 느낌</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="temp" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="temp" data-value="뜨거운 것 같음">뜨거운 것 같음</button>
+          <button class="vf-chip" data-group="temp" data-value="차가운 것 같음">차가운 것 같음</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">⚠️</span><span class="vf-section__title">위험 신호</span></div>
+    <div class="vf-section__body">
+      <div class="vf-field">
+        <label class="vf-label">잇몸 색깔</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="gum_color" data-value="분홍색(정상)">분홍색 (정상)</button>
+          <button class="vf-chip" data-group="gum_color" data-value="창백함">창백함</button>
+          <button class="vf-chip" data-group="gum_color" data-value="흰색">흰색</button>
+          <button class="vf-chip" data-group="gum_color" data-value="파랗거나 보라색">파랗거나 보라색</button>
+          <button class="vf-chip" data-group="gum_color" data-value="모름">모름</button>
+        </div>
+        <div class="vf-accordion" id="acc-gum-urgent">
+          <div class="vf-accordion__inner"><div id="urgent-gum"></div></div>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">쓰러지거나 일어나지 못함</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="collapse" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="collapse" data-value="있음">있음</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">최근 외상 가능성</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="trauma" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="trauma" data-value="있음">있음</button>
+          <button class="vf-chip" data-group="trauma" data-value="모름">모름</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">💬</span><span class="vf-section__title">추가 전달 사항</span><span class="vf-section__badge vf-section__badge--optional">선택</span></div>
+    <div class="vf-section__body">
+      <textarea class="vf-textarea" id="f-notes" placeholder="기력저하에 대해 추가로 전달하고 싶은 내용을 적어주세요" rows="3"></textarea>
+    </div>
+  </section>
+</div>
+
+<div class="vf-bottom-bar">
+  <button class="vf-btn vf-btn--secondary" onclick="history.back()">← 이전</button>
+  <button class="vf-btn vf-btn--primary" onclick="handleNext()">다음 →</button>
+</div>
+
+<script src="../assets/utils.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const state = {};
+  const URGENT_GUM = ['창백함','흰색','파랗거나 보라색'];
+
+  document.querySelectorAll('.vf-chip[data-group]').forEach(chip => {
+    chip.addEventListener('click', function() {
+      const group = this.dataset.group;
+      document.querySelectorAll(`.vf-chip[data-group="${group}"]`).forEach(c => c.classList.remove('selected'));
+      this.classList.add('selected');
+      state[group] = this.dataset.value;
+
+      if (group === 'vomiting'         && this.dataset.value === '있음') VF.Router.addBranchIfMissing('vomiting');
+      if (group === 'diarrhea'         && this.dataset.value === '있음') VF.Router.addBranchIfMissing('diarrhea');
+      if (group === 'appetite'         && ['감소','안 먹음'].includes(this.dataset.value)) VF.Router.addBranchIfMissing('anorexia');
+      if (group === 'breathing'        && this.dataset.value !== '정상') VF.Router.addBranchIfMissing('dyspnea');
+      if (group === 'exercise_dyspnea' && this.dataset.value === '있음') VF.Router.addBranchIfMissing('dyspnea');
+      if (group === 'walk_collapse'    && this.dataset.value === '있음') VF.Router.addBranchIfMissing('dyspnea');
+      if (group === 'collapse'         && this.dataset.value === '있음') VF.Router.addBranchIfMissing('syncope');
+      if (group === 'gum_color') {
+        const acc = document.getElementById('acc-gum-urgent');
+        VF.toggleAccordion(acc, URGENT_GUM.includes(this.dataset.value));
+        if (URGENT_GUM.includes(this.dataset.value)) {
+          VF.showUrgentAlert(document.getElementById('urgent-gum'), '잇몸 색깔 이상은 쇼크·빈혈·저산소증의 징후입니다. 즉시 내원해주세요.');
+        }
+      }
+    });
+  });
+
+  function handleNext() {
+    VF.Storage.set('branch_lethargy', {
+      since: state.since, degree: state.degree, pattern: state.pattern,
+      activity: state.activity, sleep: state.sleep, hiding: state.hiding, response: state.response,
+      exercise_dyspnea: state.exercise_dyspnea, walk_collapse: state.walk_collapse, quick_fatigue: state.quick_fatigue,
+      appetite: state.appetite, vomiting: state.vomiting, diarrhea: state.diarrhea,
+      breathing: state.breathing, pain: state.pain, temp: state.temp,
+      gum_color: state.gum_color, collapse: state.collapse, trauma: state.trauma,
+      notes: document.getElementById('f-notes').value.trim(),
+    });
+    VF.Router.completeCurrent();
+  }
+  window.handleNext = handleNext;
+  VF.updateProgressBar(Math.round(VF.Router.getProgress() * 100));
+});
+</script>
+</body>
+</html>

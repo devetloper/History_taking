@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>VetForm — 최종 확인 및 제출</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    /* 제출 버튼 로딩 상태 */
+    .vf-btn--submitting {
+      background: var(--color-text-disabled);
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+    /* 성공 화면 */
+    #success-screen { display: none; }
+    /* 실패 안내 */
+    .vf-fail-box {
+      background: #FEF2F2;
+      border: 1.5px solid #FECACA;
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      margin: 12px 20px 0;
+      font-size: 14px;
+      color: #991B1B;
+      line-height: 1.6;
+    }
+    /* 요약 섹션 레이블 */
+    .summary-section-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 14px 18px 6px;
+      border-top: 1px solid var(--color-border);
+      margin-top: 4px;
+    }
+    .summary-section-label:first-child {
+      border-top: none;
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+
+<header class="vf-header">
+  <div>
+    <div class="vf-header__logo">🐾 VetForm</div>
+    <div class="vf-header__subtitle">최종 확인 및 제출</div>
+  </div>
+</header>
+<div class="vf-progress">
+  <div class="vf-progress__bar" id="progressBar" style="width:100%"></div>
+</div>
+
+<!-- ===== 메인 화면 ===== -->
+<div id="main-screen">
+  <div class="vf-page">
+
+    <div class="vf-page-title vf-mt-md">
+      <div class="vf-page-title__h1">✅ 문진 내용 확인</div>
+      <div class="vf-page-title__desc">아래 내용을 확인하시고 제출해주세요.</div>
+    </div>
+
+    <!-- 오류 메시지 -->
+    <div id="fail-box" class="vf-fail-box" style="display:none">
+      <strong>전송에 실패했습니다.</strong><br>
+      잠시 후 다시 시도해주세요. 3회 재시도 후에도 실패하면 내용이 임시저장됩니다.
+    </div>
+
+    <!-- 요약 카드 -->
+    <div class="vf-summary-card vf-mt-md" id="summary-card">
+      <!-- JS로 채워짐 -->
+    </div>
+
+    <!-- 동의 안내 -->
+    <div class="vf-section vf-mt-md" style="background:var(--color-primary-light);border-radius:var(--radius-md);padding:16px 18px;margin:12px 20px 0">
+      <p style="font-size:13px;color:var(--color-primary);line-height:1.7">
+        📌 제출하신 문진 내용은 진료 목적으로만 사용되며, 수의사 선생님께 안전하게 전달됩니다.
+      </p>
+    </div>
+
+  </div><!-- /.vf-page -->
+
+  <div class="vf-bottom-bar">
+    <button class="vf-btn vf-btn--secondary" onclick="history.back()">← 이전</button>
+    <button class="vf-btn vf-btn--primary" id="btn-submit" onclick="handleSubmit()">
+      제출하기
+    </button>
+  </div>
+</div>
+
+<!-- ===== 성공 화면 ===== -->
+<div id="success-screen">
+  <div class="vf-success">
+    <div class="vf-success__icon">🎉</div>
+    <div class="vf-success__title">문진 제출 완료!</div>
+    <div class="vf-success__desc">
+      수의사 선생님께 문진 내용이 전달되었습니다.<br>
+      잠시 후 진료실로 안내해드리겠습니다.
+    </div>
+    <div style="margin-top:8px;padding:14px 20px;background:var(--color-bg);border-radius:var(--radius-md);font-size:13px;color:var(--color-text-secondary);text-align:center;width:100%">
+      이 화면을 닫으셔도 됩니다.
+    </div>
+  </div>
+</div>
+
+<script src="assets/utils.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  // ── 전체 데이터 로드 ────────────────────────────────────────
+  const allData = VF.Storage.getAll();
+
+  // ── 요약 카드 렌더링 ─────────────────────────────────────────
+  function renderSummary() {
+    const card = document.getElementById('summary-card');
+    const s  = allData.signalment        || {};
+    const cc = allData.chief_complaint   || {};
+    const sr = allData.systems_review    || {};
+    const h  = allData.history           || {};
+    const pv = allData.prevention        || {};
+    const de = allData.diet_env          || {};
+    const m  = allData.memo              || {};
+
+    const rows = [];
+
+    // Signalment
+    rows.push({ type: 'label', text: '기본 정보' });
+    const sex     = s.sex     || '-';
+    const neuter  = s.neutered === '했음' ? '중성화 O' : s.neutered === '안 함' ? '중성화 X' : '';
+    const age     = s.age ? `${s.age}${s.age_unit || '년'}` : '-';
+    rows.push({ label: '환자',    value: `${s.name || '-'} / ${s.breed || '-'} / ${sex} ${neuter} / ${age}` });
+    rows.push({ label: '체중',    value: s.weight ? `${s.weight} kg` : '미입력' });
+    rows.push({ label: '보호자',  value: s.owner_name || '-' });
+
+    // Chief Complaint
+    rows.push({ type: 'label', text: '주호소' });
+    rows.push({ label: '내용',  value: cc.reason || '-' });
+    rows.push({ label: '경과',  value: [cc.since, cc.course, cc.severity].filter(Boolean).join(' / ') || '-' });
+    if (cc.recurrence === '재발') {
+      rows.push({ label: '재발', value: cc.recurrence_when || '시기 미입력' });
+    }
+
+    // 계통 리뷰
+    rows.push({ type: 'label', text: '증상 체크' });
+    if (sr.selected && sr.selected.length > 0) {
+      const labels = sr.selected.map(k => VF.BRANCH_MAP[k] ? VF.BRANCH_MAP[k].emoji + ' ' + VF.BRANCH_MAP[k].label : k);
+      rows.push({ label: '선택 증상', value: labels.join(', ') });
+    } else {
+      rows.push({ label: '선택 증상', value: '없음' });
+    }
+    if (sr.other) rows.push({ label: '기타', value: sr.other });
+
+    // Branch 완료 목록
+    const branchKeys = Object.keys(allData).filter(k => k.startsWith('branch_'));
+    if (branchKeys.length > 0) {
+      rows.push({ type: 'label', text: '상세 문진 완료' });
+      branchKeys.forEach(bk => {
+        const key  = bk.replace('branch_', '');
+        const info = VF.BRANCH_MAP[key];
+        if (info) rows.push({ label: info.emoji + ' ' + info.label, value: '답변 완료' });
+      });
+    }
+
+    // 과거력
+    rows.push({ type: 'label', text: '과거력' });
+    const condVal = h.conditions === '있음' ? (h.conditions_detail || '있음') : (h.conditions || '-');
+    const surgVal = h.surgeries  === '있음' ? (h.surgeries_detail  || '있음') : (h.surgeries  || '-');
+    const medVal  = h.medications_yn === '있음' ? (h.medications || '있음') : '없음';
+    rows.push({ label: '기저질환', value: condVal });
+    rows.push({ label: '수술이력', value: surgVal });
+    rows.push({ label: '현재 투약', value: medVal });
+    if (h.allergies === '있음') {
+      rows.push({ label: '알레르기', value: h.allergies_detail || '있음' });
+    }
+
+    // 예방·환경 (있는 것만)
+    const pvItems = [pv.vaccine, pv.heartworm && `심장사상충 ${pv.heartworm}`, pv.parasite && `외부기생충 ${pv.parasite}`].filter(Boolean);
+    if (pvItems.length) {
+      rows.push({ type: 'label', text: '예방 관리' });
+      rows.push({ label: '예방', value: pvItems.join(' / ') });
+    }
+
+    const deItems = [de.diet, de.living, de.housemates && `동거동물 ${de.housemates}`].filter(Boolean);
+    if (deItems.length) {
+      rows.push({ type: 'label', text: '식이·환경' });
+      rows.push({ label: '환경', value: deItems.join(' / ') });
+    }
+
+    // 추가 메모
+    if (m.text) {
+      rows.push({ type: 'label', text: '추가 메모' });
+      rows.push({ label: '메모', value: m.text });
+    }
+
+    // 렌더
+    card.innerHTML = rows.map(r => {
+      if (r.type === 'label') {
+        return `<div class="summary-section-label">${r.text}</div>`;
+      }
+      return `
+        <div class="vf-summary-card__body" style="padding:6px 18px">
+          <div class="vf-summary-row">
+            <span class="vf-summary-row__label">${r.label}</span>
+            <span class="vf-summary-row__value">${r.value}</span>
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  renderSummary();
+
+  // ── 제출 처리 ────────────────────────────────────────────────
+  async function handleSubmit() {
+    const btn = document.getElementById('btn-submit');
+    const failBox = document.getElementById('fail-box');
+
+    // 버튼 로딩 상태
+    btn.innerHTML = '<span class="vf-spinner"></span>전송 중...';
+    btn.classList.add('vf-btn--submitting');
+    failBox.style.display = 'none';
+
+    const result = await VF.submitForm(allData);
+
+    if (result.ok) {
+      showSuccess();
+    } else {
+      // 실패 처리
+      btn.innerHTML = '다시 시도하기';
+      btn.classList.remove('vf-btn--submitting');
+      failBox.style.display = 'block';
+      failBox.innerHTML = `
+        <strong>전송에 실패했습니다.</strong><br>
+        문진 내용은 이 기기에 임시저장되었습니다.<br>
+        네트워크를 확인 후 다시 시도해주세요.
+        <br><small style="color:#B91C1C">오류: ${result.error || '알 수 없는 오류'}</small>
+      `;
+    }
+  }
+
+  function showSuccess() {
+    document.getElementById('main-screen').style.display = 'none';
+    document.getElementById('success-screen').style.display = 'block';
+    // sessionStorage 정리
+    VF.Storage.clearAll();
+  }
+
+  // window에 노출
+  window.handleSubmit = handleSubmit;
+
+  // ── 임시저장 데이터 복구 안내 ────────────────────────────────
+  const temp = VF.Storage.getTemp();
+  if (temp) {
+    const savedAt = new Date(temp.savedAt).toLocaleString('ko-KR');
+    const banner = document.createElement('div');
+    banner.className = 'vf-fail-box';
+    banner.style.marginTop = '12px';
+    banner.innerHTML = `
+      이전 전송 실패 데이터가 있습니다 (${savedAt}).<br>
+      <button onclick="retryTemp()" style="margin-top:8px;padding:8px 14px;background:var(--color-primary);color:white;border:none;border-radius:8px;font-size:13px;cursor:pointer">임시저장 데이터로 재시도</button>
+    `;
+    document.querySelector('.vf-page').insertBefore(banner, document.querySelector('.vf-summary-card'));
+
+    window.retryTemp = async function() {
+      const tempData = VF.Storage.getTemp();
+      if (!tempData) return;
+      const result = await VF.submitForm(tempData.data);
+      if (result.ok) showSuccess();
+    };
+  }
+
+});
+</script>
+</body>
+</html>

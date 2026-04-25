@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>VetForm — 배뇨 이상</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<header class="vf-header"><div><div class="vf-header__logo">🐾 VetForm</div><div class="vf-header__subtitle">증상 상세 문진</div></div></header>
+<div class="vf-progress"><div class="vf-progress__bar" id="progressBar" style="width:0%"></div></div>
+<div class="vf-page">
+  <div class="vf-page-title vf-mt-md">
+    <div class="vf-page-title__label">Branch 7</div>
+    <div class="vf-page-title__h1">💧 배뇨 이상</div>
+    <div class="vf-page-title__desc">배뇨 이상에 대해 조금 더 알려주세요.</div>
+  </div>
+
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">🚨</span><span class="vf-section__title">응급 안내</span></div>
+    <div class="vf-section__body">
+      <div class="vf-emergency-banner" style="margin:0;border-radius:8px">
+        <span style="font-size:18px">⚠️</span>
+        <span class="vf-emergency-banner__text">24시간 이상 소변을 못 본 것 같다면 즉시 내원해주세요.<br>고양이 수컷이 소변을 전혀 못 보고 있다면 즉시 내원해주세요.</span>
+      </div>
+    </div>
+  </section>
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">🕐</span><span class="vf-section__title">발생 양상</span></div>
+    <div class="vf-section__body">
+      <div class="vf-field">
+        <label class="vf-label">언제부터인가요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="since" data-value="오늘">오늘</button>
+          <button class="vf-chip" data-group="since" data-value="2~3일">2~3일</button>
+          <button class="vf-chip" data-group="since" data-value="1주일">1주일</button>
+          <button class="vf-chip" data-group="since" data-value="1달 이상">1달 이상</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">패턴</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="pattern" data-value="계속">계속</button>
+          <button class="vf-chip" data-group="pattern" data-value="간헐적">간헐적</button>
+          <button class="vf-chip" data-group="pattern" data-value="점점 심해짐">점점 심해짐</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">💧</span><span class="vf-section__title">배뇨 양상 세부</span></div>
+    <div class="vf-section__body">
+      <div class="vf-field">
+        <label class="vf-label">어떤 이상인가요? (여러 개 선택 가능)</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-multi="urine_type" data-value="자주 봄">자주 봄</button>
+          <button class="vf-chip" data-multi="urine_type" data-value="조금씩 봄">조금씩 봄</button>
+          <button class="vf-chip" data-multi="urine_type" data-value="못 보는 것 같음">못 보는 것 같음</button>
+          <button class="vf-chip" data-multi="urine_type" data-value="참지 못하고 지림">참지 못하고 지림</button>
+          <button class="vf-chip" data-multi="urine_type" data-value="평소와 다른 자리에서 봄">평소와 다른 자리에서 봄</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">소변 볼 때 힘을 주거나 오래 걸리나요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="dysuria" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="dysuria" data-value="있음">있음</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">소변이 아예 안 나오나요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="anuria" data-value="조금은 나옴">조금은 나옴</button>
+          <button class="vf-chip" data-group="anuria" data-value="거의 안 나오는 것 같음">거의 안 나오는 것 같음</button>
+          <button class="vf-chip" data-group="anuria" data-value="전혀 안 나오는 것 같음">전혀 안 나오는 것 같음</button>
+        </div>
+        <div class="vf-accordion" id="acc-anuria">
+          <div class="vf-accordion__inner"><div id="urgent-anuria"></div></div>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">소변 색깔</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="urine_color" data-value="정상(노란색)">정상(노란색)</button>
+          <button class="vf-chip" data-group="urine_color" data-value="진한 노란색">진한 노란색</button>
+          <button class="vf-chip" data-group="urine_color" data-value="붉은색·분홍색">붉은색·분홍색</button>
+          <button class="vf-chip" data-group="urine_color" data-value="탁함">탁함</button>
+          <button class="vf-chip" data-group="urine_color" data-value="모름">모름</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">혈뇨 여부</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="hematuria" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="hematuria" data-value="있음">있음</button>
+          <button class="vf-chip" data-group="hematuria" data-value="모름">모름</button>
+        </div>
+        <div class="vf-accordion" id="acc-hematuria">
+          <div class="vf-accordion__inner">      <div class="vf-chips">
+          <button class="vf-chip" data-group="hematuria_type" data-value="소변에 섞여 있음">소변에 섞여 있음</button>
+          <button class="vf-chip" data-group="hematuria_type" data-value="끝에만 나옴">끝에만 나옴</button>
+        </div></div>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">마지막으로 소변을 본 게 언제인가요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="last_void" data-value="오늘">오늘</button>
+          <button class="vf-chip" data-group="last_void" data-value="어제">어제</button>
+          <button class="vf-chip" data-group="last_void" data-value="2일 이상 전">2일 이상 전</button>
+          <button class="vf-chip" data-group="last_void" data-value="모름">모름</button>
+        </div>
+        <div class="vf-accordion" id="acc-last-void">
+          <div class="vf-accordion__inner"><div id="urgent-last-void"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">🔗</span><span class="vf-section__title">동반 증상</span></div>
+    <div class="vf-section__body">
+      <div class="vf-field">
+        <label class="vf-label">배뇨 시 아파하거나 소리를 내나요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="pain_void" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="pain_void" data-value="있음">있음</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">생식기 주변을 자주 핥나요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="licking" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="licking" data-value="평소보다 많이">평소보다 많이</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">식욕 변화</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="appetite" data-value="정상">정상</button>
+          <button class="vf-chip" data-group="appetite" data-value="감소">감소</button>
+          <button class="vf-chip" data-group="appetite" data-value="안 먹음">안 먹음</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">기력 변화</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="energy" data-value="정상">정상</button>
+          <button class="vf-chip" data-group="energy" data-value="처짐">처짐</button>
+          <button class="vf-chip" data-group="energy" data-value="많이 처짐">많이 처짐</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">구토 동반</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="vomiting" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="vomiting" data-value="있음">있음</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">복부 팽만</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="abdomen" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="abdomen" data-value="있음">있음</button>
+          <button class="vf-chip" data-group="abdomen" data-value="모름">모름</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">⚠️</span><span class="vf-section__title">위험 신호</span></div>
+    <div class="vf-section__body">
+      <div class="vf-field">
+        <label class="vf-label">고양이 수컷인데 소변을 못 보고 있나요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="male_cat_obstruction" data-value="해당 없음">해당 없음</button>
+          <button class="vf-chip" data-group="male_cat_obstruction" data-value="아니요">아니요</button>
+          <button class="vf-chip" data-group="male_cat_obstruction" data-value="그런 것 같음">그런 것 같음</button>
+        </div>
+        <div class="vf-accordion" id="acc-male-cat">
+          <div class="vf-accordion__inner"><div id="urgent-male-cat"></div></div>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">요로결석으로 수술하거나 치료받은 적 있나요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="uroliths_hx" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="uroliths_hx" data-value="있음">있음</button>
+          <button class="vf-chip" data-group="uroliths_hx" data-value="모름">모름</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">최근 식이 변경</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="diet_change" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="diet_change" data-value="있음">있음</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">음수량 변화</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="water" data-value="정상">정상</button>
+          <button class="vf-chip" data-group="water" data-value="많이 마심">많이 마심</button>
+          <button class="vf-chip" data-group="water" data-value="적게 마심">적게 마심</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">💬</span><span class="vf-section__title">추가 전달 사항</span><span class="vf-section__badge vf-section__badge--optional">선택</span></div>
+    <div class="vf-section__body">
+      <textarea class="vf-textarea" id="f-notes" placeholder="배뇨 이상에 대해 추가로 전달하고 싶은 내용을 적어주세요" rows="3"></textarea>
+    </div>
+  </section>
+</div>
+<div class="vf-bottom-bar">
+  <button class="vf-btn vf-btn--secondary" onclick="history.back()">← 이전</button>
+  <button class="vf-btn vf-btn--primary" onclick="handleNext()">다음 →</button>
+</div>
+<script src="../assets/utils.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const state = {};
+  const multiState = {};
+  const ACCORDION_RULES = {};
+
+  Object.assign(ACCORDION_RULES, {
+    hematuria: { acc: 'acc-hematuria', trigger: '있음' },
+  });
+  function collectTextFields(data) {}
+  function handleSideEffect(group, value) {
+    if (group === 'vomiting' && value === '있음') VF.Router.addBranchIfMissing('vomiting');
+    if (group === 'anuria' && value === '전혀 안 나오는 것 같음') {
+      VF.toggleAccordion(document.getElementById('acc-anuria'), true);
+      VF.showUrgentAlert(document.getElementById('urgent-anuria'), '소변이 전혀 안 나오는 것은 응급 상황입니다. 즉시 내원해주세요.');
+    }
+    if (group === 'last_void' && ['2일 이상 전','모름'].includes(value)) {
+      VF.toggleAccordion(document.getElementById('acc-last-void'), true);
+      VF.showUrgentAlert(document.getElementById('urgent-last-void'), '배뇨가 2일 이상 없었을 수 있습니다. 즉시 내원해주세요.');
+    }
+    if (group === 'male_cat_obstruction' && value === '그런 것 같음') {
+      VF.toggleAccordion(document.getElementById('acc-male-cat'), true);
+      VF.showUrgentAlert(document.getElementById('urgent-male-cat'), '고양이 수컷 요도폐색은 응급입니다. 지금 바로 내원해주세요.');
+    }
+  }
+
+  document.querySelectorAll('.vf-chip[data-group]').forEach(chip => {
+    chip.addEventListener('click', function() {
+      const group = this.dataset.group;
+      document.querySelectorAll(`.vf-chip[data-group="${group}"]`).forEach(c => c.classList.remove('selected'));
+      this.classList.add('selected');
+      state[group] = this.dataset.value;
+      const rule = ACCORDION_RULES[group];
+      if (rule) VF.toggleAccordion(document.getElementById(rule.acc), this.dataset.value === rule.trigger);
+      handleSideEffect(group, this.dataset.value);
+    });
+  });
+  document.querySelectorAll('.vf-chip[data-multi]').forEach(chip => {
+    chip.addEventListener('click', function() {
+      this.classList.toggle('selected');
+      const key = this.dataset.multi;
+      const val = this.dataset.value;
+      if (!multiState[key]) multiState[key] = [];
+      if (this.classList.contains('selected')) { if (!multiState[key].includes(val)) multiState[key].push(val); }
+      else { multiState[key] = multiState[key].filter(v => v !== val); }
+    });
+  });
+  function handleNext() {
+    const data = Object.assign({}, state);
+    Object.keys(multiState).forEach(k => { data[k] = multiState[k]; });
+    data.notes = document.getElementById('f-notes').value.trim();
+    collectTextFields(data);
+    VF.Storage.set('branch_urinary', data);
+    VF.Router.completeCurrent();
+  }
+  window.handleNext = handleNext;
+  VF.updateProgressBar(Math.round(VF.Router.getProgress() * 100));
+});
+</script>
+</body>
+</html>

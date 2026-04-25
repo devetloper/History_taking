@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>VetForm — 귀 이상</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<header class="vf-header"><div><div class="vf-header__logo">🐾 VetForm</div><div class="vf-header__subtitle">증상 상세 문진</div></div></header>
+<div class="vf-progress"><div class="vf-progress__bar" id="progressBar" style="width:0%"></div></div>
+<div class="vf-page">
+  <div class="vf-page-title vf-mt-md">
+    <div class="vf-page-title__label">Branch 10</div>
+    <div class="vf-page-title__h1">👂 귀 이상</div>
+    <div class="vf-page-title__desc">귀 이상에 대해 조금 더 알려주세요.</div>
+  </div>
+
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">🕐</span><span class="vf-section__title">발생 양상</span></div>
+    <div class="vf-section__body">
+      <div class="vf-field">
+        <label class="vf-label">언제부터인가요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="since" data-value="오늘">오늘</button>
+          <button class="vf-chip" data-group="since" data-value="2~3일">2~3일</button>
+          <button class="vf-chip" data-group="since" data-value="1주일">1주일</button>
+          <button class="vf-chip" data-group="since" data-value="1달 이상">1달 이상</button>
+          <button class="vf-chip" data-group="since" data-value="오래됨(수개월)">오래됨(수개월)</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">패턴</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="pattern" data-value="계속">계속</button>
+          <button class="vf-chip" data-group="pattern" data-value="좋아졌다 나빠졌다 반복">좋아졌다 나빠졌다 반복</button>
+          <button class="vf-chip" data-group="pattern" data-value="점점 심해짐">점점 심해짐</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">어느 쪽 귀인가요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="side" data-value="왼쪽">왼쪽</button>
+          <button class="vf-chip" data-group="side" data-value="오른쪽">오른쪽</button>
+          <button class="vf-chip" data-group="side" data-value="양쪽">양쪽</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">👂</span><span class="vf-section__title">귀 양상 세부</span></div>
+    <div class="vf-section__body">
+      <div class="vf-field">
+        <label class="vf-label">어떤 증상인가요? (여러 개 선택 가능)</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-multi="symptoms" data-value="귀를 자주 긁음">귀를 자주 긁음</button>
+          <button class="vf-chip" data-multi="symptoms" data-value="머리를 흔듦">머리를 흔듦</button>
+          <button class="vf-chip" data-multi="symptoms" data-value="귀에서 냄새 남">귀에서 냄새 남</button>
+          <button class="vf-chip" data-multi="symptoms" data-value="분비물이 보임">분비물이 보임</button>
+          <button class="vf-chip" data-multi="symptoms" data-value="귀가 부어 보임">귀가 부어 보임</button>
+          <button class="vf-chip" data-multi="symptoms" data-value="머리가 한쪽으로 기울어짐">머리가 한쪽으로 기울어짐</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">분비물 색깔</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="discharge_color" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="discharge_color" data-value="검은색">검은색</button>
+          <button class="vf-chip" data-group="discharge_color" data-value="갈색">갈색</button>
+          <button class="vf-chip" data-group="discharge_color" data-value="노란색·고름">노란색·고름</button>
+          <button class="vf-chip" data-group="discharge_color" data-value="모름">모름</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">냄새</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="odor" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="odor" data-value="약간">약간</button>
+          <button class="vf-chip" data-group="odor" data-value="심하게">심하게</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">귀 안이 빨갛게 보이나요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="erythema" data-value="안 봤음">안 봤음</button>
+          <button class="vf-chip" data-group="erythema" data-value="정상">정상</button>
+          <button class="vf-chip" data-group="erythema" data-value="빨개 보임">빨개 보임</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">🔗</span><span class="vf-section__title">동반 증상</span></div>
+    <div class="vf-section__body">
+      <div class="vf-field">
+        <label class="vf-label">피부 이상 동반</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="skin_problem" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="skin_problem" data-value="있음">있음</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">머리가 한쪽으로 기울어져 있나요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="head_tilt" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="head_tilt" data-value="있음">있음</button>
+        </div>
+        <div class="vf-accordion" id="acc-head-tilt">
+          <div class="vf-accordion__inner"><div id="urgent-head-tilt"></div></div>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">눈이 떨리거나 빠르게 움직이나요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="nystagmus" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="nystagmus" data-value="있음">있음</button>
+          <button class="vf-chip" data-group="nystagmus" data-value="모름">모름</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">비틀거리거나 균형을 못 잡나요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="ataxia" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="ataxia" data-value="있음">있음</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">⚠️</span><span class="vf-section__title">위험 신호</span></div>
+    <div class="vf-section__body">
+      <div class="vf-field">
+        <label class="vf-label">귀가 풍선처럼 부풀어 있나요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="aural_hematoma" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="aural_hematoma" data-value="있음">있음</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">이전에 외이염으로 치료받은 적 있나요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="otitis_hx" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="otitis_hx" data-value="있음">있음</button>
+          <button class="vf-chip" data-group="otitis_hx" data-value="모름">모름</button>
+        </div>
+        <div class="vf-accordion" id="acc-recurrent">
+          <div class="vf-accordion__inner">      <div class="vf-chips">
+          <button class="vf-chip" data-group="otitis_recurrent" data-value="자주 재발함">자주 재발함</button>
+          <button class="vf-chip" data-group="otitis_recurrent" data-value="가끔 재발함">가끔 재발함</button>
+          <button class="vf-chip" data-group="otitis_recurrent" data-value="처음">처음</button>
+        </div></div>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">외부기생충 예방을 최근에 했나요?</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="parasite_prevention" data-value="하고 있음">하고 있음</button>
+          <button class="vf-chip" data-group="parasite_prevention" data-value="최근 안 함">최근 안 함</button>
+          <button class="vf-chip" data-group="parasite_prevention" data-value="안 함">안 함</button>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label class="vf-label">동거 동물 동일 증상</label>
+              <div class="vf-chips">
+          <button class="vf-chip" data-group="housemate_sick" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="housemate_sick" data-value="있음">있음</button>
+          <button class="vf-chip" data-group="housemate_sick" data-value="동거동물 없음">동거동물 없음</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">💬</span><span class="vf-section__title">추가 전달 사항</span><span class="vf-section__badge vf-section__badge--optional">선택</span></div>
+    <div class="vf-section__body">
+      <textarea class="vf-textarea" id="f-notes" placeholder="귀 이상에 대해 추가로 전달하고 싶은 내용을 적어주세요" rows="3"></textarea>
+    </div>
+  </section>
+</div>
+<div class="vf-bottom-bar">
+  <button class="vf-btn vf-btn--secondary" onclick="history.back()">← 이전</button>
+  <button class="vf-btn vf-btn--primary" onclick="handleNext()">다음 →</button>
+</div>
+<script src="../assets/utils.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const state = {};
+  const multiState = {};
+  const ACCORDION_RULES = {};
+
+  Object.assign(ACCORDION_RULES, {
+    otitis_hx: { acc: 'acc-recurrent', trigger: '있음' },
+  });
+  function collectTextFields(data) {}
+  function handleSideEffect(group, value) {
+    if (group === 'skin_problem' && value === '있음') VF.Router.addBranchIfMissing('skin');
+    if (group === 'head_tilt'    && value === '있음') {
+      VF.toggleAccordion(document.getElementById('acc-head-tilt'), true);
+      VF.showUrgentAlert(document.getElementById('urgent-head-tilt'), '머리 기울임(head tilt)은 전정계 문제 또는 중이염의 징후일 수 있습니다.');
+    }
+    if (group === 'ataxia' && value === '있음') VF.Router.addBranchIfMissing('seizure');
+  }
+
+  document.querySelectorAll('.vf-chip[data-group]').forEach(chip => {
+    chip.addEventListener('click', function() {
+      const group = this.dataset.group;
+      document.querySelectorAll(`.vf-chip[data-group="${group}"]`).forEach(c => c.classList.remove('selected'));
+      this.classList.add('selected');
+      state[group] = this.dataset.value;
+      const rule = ACCORDION_RULES[group];
+      if (rule) VF.toggleAccordion(document.getElementById(rule.acc), this.dataset.value === rule.trigger);
+      handleSideEffect(group, this.dataset.value);
+    });
+  });
+  document.querySelectorAll('.vf-chip[data-multi]').forEach(chip => {
+    chip.addEventListener('click', function() {
+      this.classList.toggle('selected');
+      const key = this.dataset.multi;
+      const val = this.dataset.value;
+      if (!multiState[key]) multiState[key] = [];
+      if (this.classList.contains('selected')) { if (!multiState[key].includes(val)) multiState[key].push(val); }
+      else { multiState[key] = multiState[key].filter(v => v !== val); }
+    });
+  });
+  function handleNext() {
+    const data = Object.assign({}, state);
+    Object.keys(multiState).forEach(k => { data[k] = multiState[k]; });
+    data.notes = document.getElementById('f-notes').value.trim();
+    collectTextFields(data);
+    VF.Storage.set('branch_ear', data);
+    VF.Router.completeCurrent();
+  }
+  window.handleNext = handleNext;
+  VF.updateProgressBar(Math.round(VF.Router.getProgress() * 100));
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>VetForm — 기침</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+<header class="vf-header"><div><div class="vf-header__logo">🐾 VetForm</div><div class="vf-header__subtitle">증상 상세 문진</div></div></header>
+<div class="vf-progress"><div class="vf-progress__bar" id="progressBar" style="width:0%"></div></div>
+<div class="vf-page">
+  <div class="vf-page-title vf-mt-md">
+    <div class="vf-page-title__label">Branch 6</div>
+    <div class="vf-page-title__h1">😮 기침</div>
+    <div class="vf-page-title__desc">기침에 대해 조금 더 알려주세요.</div>
+  </div>
+
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">🕐</span><span class="vf-section__title">발생 양상</span></div>
+    <div class="vf-section__body">
+      <div class="vf-field"><label class="vf-label">언제부터인가요?</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="since" data-value="오늘">오늘</button>
+          <button class="vf-chip" data-group="since" data-value="2~3일">2~3일</button>
+          <button class="vf-chip" data-group="since" data-value="1주일">1주일</button>
+          <button class="vf-chip" data-group="since" data-value="1달 이상">1달 이상</button>
+        </div>
+      </div>
+      <div class="vf-field"><label class="vf-label">하루 빈도</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="frequency" data-value="가끔(몇 번)">가끔 (몇 번)</button>
+          <button class="vf-chip" data-group="frequency" data-value="자주(수십 번)">자주 (수십 번)</button>
+          <button class="vf-chip" data-group="frequency" data-value="거의 계속">거의 계속</button>
+        </div>
+      </div>
+      <div class="vf-field"><label class="vf-label">패턴</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="pattern" data-value="밤·새벽에 심함">밤·새벽에 심함</button>
+          <button class="vf-chip" data-group="pattern" data-value="운동·흥분 시 심함">운동·흥분 시 심함</button>
+          <button class="vf-chip" data-group="pattern" data-value="시도 때도 없이">시도 때도 없이</button>
+          <button class="vf-chip" data-group="pattern" data-value="모름">모름</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">🎙️</span><span class="vf-section__title">기침 양상 세부</span></div>
+    <div class="vf-section__body">
+      <div class="vf-field"><label class="vf-label">기침 소리</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="sound" data-value="컹컹(건성)">컹컹 (건성)</button>
+          <button class="vf-chip" data-group="sound" data-value="캑캑(뭔가 걸린 듯)">캑캑 (뭔가 걸린 듯)</button>
+          <button class="vf-chip" data-group="sound" data-value="거위 울음소리">거위 울음소리</button>
+          <button class="vf-chip" data-group="sound" data-value="가래 끓는 소리">가래 끓는 소리</button>
+        </div>
+      </div>
+      <div class="vf-field"><label class="vf-label">기침 후 구역질·토할 것 같은 모습</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="post_retch" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="post_retch" data-value="있음">있음</button>
+        </div>
+      </div>
+      <div class="vf-field"><label class="vf-label">가래나 분비물이 나오나요?</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="sputum" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="sputum" data-value="있음">있음</button>
+          <button class="vf-chip" data-group="sputum" data-value="모름">모름</button>
+        </div>
+        <div class="vf-accordion" id="acc-sputum">
+          <div class="vf-accordion__inner">
+            <input class="vf-input" type="text" id="f-sputum-color" placeholder="색깔이 어떤가요? (예: 투명, 노란색, 피 섞임)" />
+          </div>
+        </div>
+      </div>
+      <div class="vf-field"><label class="vf-label">밥이나 물을 먹을 때 기침하거나 사레들리나요?</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="aspiration" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="aspiration" data-value="가끔">가끔</button>
+          <button class="vf-chip" data-group="aspiration" data-value="자주">자주</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">🔗</span><span class="vf-section__title">동반 증상</span></div>
+    <div class="vf-section__body">
+      <div class="vf-field"><label class="vf-label">호흡곤란 동반</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="dyspnea" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="dyspnea" data-value="있음">있음</button>
+        </div>
+      </div>
+      <div class="vf-field"><label class="vf-label">콧물·재채기 동반</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="nasal" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="nasal" data-value="있음">있음</button>
+        </div>
+      </div>
+      <div class="vf-field"><label class="vf-label">기력 변화</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="energy" data-value="정상">정상</button>
+          <button class="vf-chip" data-group="energy" data-value="처짐">처짐</button>
+        </div>
+      </div>
+      <div class="vf-field"><label class="vf-label">식욕 변화</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="appetite" data-value="정상">정상</button>
+          <button class="vf-chip" data-group="appetite" data-value="감소">감소</button>
+          <button class="vf-chip" data-group="appetite" data-value="안 먹음">안 먹음</button>
+        </div>
+      </div>
+      <div class="vf-field"><label class="vf-label">운동 불내성</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="exercise_intolerance" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="exercise_intolerance" data-value="조금만 움직여도 힘들어 보임">조금만 움직여도 힘들어 보임</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">⚠️</span><span class="vf-section__title">위험 신호</span></div>
+    <div class="vf-section__body">
+      <div class="vf-field"><label class="vf-label">잇몸·혀 색깔</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="gum_color" data-value="분홍(정상)">분홍 (정상)</button>
+          <button class="vf-chip" data-group="gum_color" data-value="창백">창백</button>
+          <button class="vf-chip" data-group="gum_color" data-value="파랗거나 보라색">파랗거나 보라색</button>
+          <button class="vf-chip" data-group="gum_color" data-value="모름">모름</button>
+        </div>
+        <div class="vf-accordion" id="acc-cyanosis"><div class="vf-accordion__inner"><div id="urgent-cyanosis"></div></div></div>
+      </div>
+      <div class="vf-field"><label class="vf-label">동거 동물에게도 같은 증상이 있나요?</label>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="housemate_sick" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="housemate_sick" data-value="있음">있음</button>
+          <button class="vf-chip" data-group="housemate_sick" data-value="동거동물 없음">동거동물 없음</button>
+        </div>
+      </div>
+      <div class="vf-field"><label class="vf-label">최근 다른 동물과 접촉했나요?</label>
+        <div class="vf-hint">미용실, 호텔, 공원 등</div>
+        <div class="vf-chips">
+          <button class="vf-chip" data-group="animal_contact" data-value="없음">없음</button>
+          <button class="vf-chip" data-group="animal_contact" data-value="있음">있음</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vf-section vf-mt-md">
+    <div class="vf-section__header"><span class="vf-section__icon">💬</span><span class="vf-section__title">추가 전달 사항</span><span class="vf-section__badge vf-section__badge--optional">선택</span></div>
+    <div class="vf-section__body">
+      <textarea class="vf-textarea" id="f-notes" placeholder="기침에 대해 추가로 전달하고 싶은 내용을 적어주세요" rows="3"></textarea>
+    </div>
+  </section>
+</div>
+
+<div class="vf-bottom-bar">
+  <button class="vf-btn vf-btn--secondary" onclick="history.back()">← 이전</button>
+  <button class="vf-btn vf-btn--primary" onclick="handleNext()">다음 →</button>
+</div>
+
+<script src="../assets/utils.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const state = {};
+  document.querySelectorAll('.vf-chip[data-group]').forEach(chip => {
+    chip.addEventListener('click', function() {
+      const group = this.dataset.group;
+      document.querySelectorAll(`.vf-chip[data-group="${group}"]`).forEach(c => c.classList.remove('selected'));
+      this.classList.add('selected');
+      state[group] = this.dataset.value;
+      if (group === 'sputum' && this.dataset.value === '있음') VF.toggleAccordion(document.getElementById('acc-sputum'), true);
+      if (group === 'dyspnea' && this.dataset.value === '있음') VF.Router.addBranchIfMissing('dyspnea');
+      if (group === 'nasal'   && this.dataset.value === '있음') VF.Router.addBranchIfMissing('nasal');
+      if (group === 'gum_color' && ['창백','파랗거나 보라색'].includes(this.dataset.value)) {
+        VF.toggleAccordion(document.getElementById('acc-cyanosis'), true);
+        VF.showUrgentAlert(document.getElementById('urgent-cyanosis'), '잇몸/혀 색깔 이상은 청색증 징후입니다. 즉시 내원해주세요.');
+      }
+    });
+  });
+  function handleNext() {
+    VF.Storage.set('branch_cough', {
+      since: state.since, frequency: state.frequency, pattern: state.pattern,
+      sound: state.sound, post_retch: state.post_retch, sputum: state.sputum,
+      sputum_color: document.getElementById('f-sputum-color').value.trim(),
+      aspiration: state.aspiration, dyspnea: state.dyspnea, nasal: state.nasal,
+      energy: state.energy, appetite: state.appetite, exercise_intolerance: state.exercise_intolerance,
+      gum_color: state.gum_color, housemate_sick: state.housemate_sick, animal_contact: state.animal_contact,
+      notes: document.getElementById('f-notes').value.trim(),
+    });
+    VF.Router.completeCurrent();
+  }
+  window.handleNext = handleNext;
+  VF.updateProgressBar(Math.round(VF.Router.getProgress() * 100));
+});
+</script>
+</body>
+</html>

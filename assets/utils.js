@@ -490,7 +490,7 @@ function buildSheetsRow(allData) {
  * Workers URL — 배포 후 실제 URL로 교체
  * 개발 중에는 이 값을 직접 수정하거나 config 파일로 분리 가능
  */
-const WORKERS_URL = 'https://vetform-relay.YOUR_SUBDOMAIN.workers.dev';
+const WORKERS_URL = 'https://hist-relay.simpson9713.workers.dev/';
 
 /**
  * 문진 데이터 제출 (재시도 3회)

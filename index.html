@@ -588,6 +588,13 @@ document.querySelectorAll('.vf-symptom-item').forEach(item => {
     }
     renderBranchCards();
     updateProgress();
+    // 버튼 텍스트 업데이트
+    const btn = document.getElementById('btn-next');
+    if (state.selectedBranches.length > 0) {
+      btn.textContent = '상세 문진 시작 →';
+    } else {
+      btn.textContent = '다음 단계로 →';
+    }
   });
 });
 
@@ -623,6 +630,15 @@ function renderBranchCards() {
       </div>
       <span class="vf-branch-card__arrow">›</span>
     `;
+    // 카드 클릭 시 데이터 저장 후 해당 branch로 이동
+    card.addEventListener('click', () => {
+      saveData();
+      VF.Router.setBranches(state.selectedBranches);
+      const routing = VF.Router.getRouting();
+      const idx = routing.branches.indexOf(key);
+      if (idx !== -1) { routing.currentIndex = idx; VF.Storage.set('routing', routing); }
+      window.location.href = 'branches/' + info.file;
+    });
     cardsDiv.appendChild(card);
   });
 
